@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 520" role="img" aria-labelledby="title desc">
+  <title id="title">워드클라우드 예시</title>
+  <desc id="desc">고객 리뷰 텍스트에서 자주 등장한 단어를 글자 크기로 표현한 워드클라우드 예시</desc>
+  <style>
+    .kr { font-family: "Noto Sans CJK KR", "Noto Sans KR", Arial, sans-serif; font-weight: 700; }
+  </style>
+  <rect width="980" height="520" fill="#ffffff"/>
+  <rect x="72" y="64" width="836" height="392" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="490" y="108" text-anchor="middle" class="kr" font-size="24" fill="#111827">고객 리뷰 워드클라우드 예시</text>
+
+  <text x="474" y="276" text-anchor="middle" class="kr" font-size="74" fill="#2563eb">배송</text>
+  <text x="308" y="218" text-anchor="middle" class="kr" font-size="48" fill="#16a34a">환불</text>
+  <text x="638" y="218" text-anchor="middle" class="kr" font-size="46" fill="#ea580c">상담</text>
+  <text x="258" y="318" text-anchor="middle" class="kr" font-size="38" fill="#7c3aed">품질</text>
+  <text x="694" y="322" text-anchor="middle" class="kr" font-size="38" fill="#0891b2">만족</text>
+  <text x="484" y="358" text-anchor="middle" class="kr" font-size="34" fill="#ca8a04">지연</text>
+  <text x="190" y="254" text-anchor="middle" class="kr" font-size="29" fill="#0f766e">교환</text>
+  <text x="790" y="256" text-anchor="middle" class="kr" font-size="29" fill="#be123c">포장</text>
+  <text x="358" y="394" text-anchor="middle" class="kr" font-size="26" fill="#4338ca">알림</text>
+  <text x="612" y="392" text-anchor="middle" class="kr" font-size="26" fill="#15803d">개선</text>
+  <text x="172" y="366" text-anchor="middle" class="kr" font-size="23" fill="#0369a1">고객</text>
+  <text x="808" y="366" text-anchor="middle" class="kr" font-size="23" fill="#b45309">요청</text>
+  <text x="208" y="176" text-anchor="middle" class="kr" font-size="21" fill="#64748b">빠른</text>
+  <text x="770" y="176" text-anchor="middle" class="kr" font-size="21" fill="#64748b">친절</text>
+  <text x="490" y="168" text-anchor="middle" class="kr" font-size="20" fill="#64748b">처리</text>
+
+  <text x="490" y="492" text-anchor="middle" class="kr" font-size="14" fill="#64748b">
+    예시 이미지는 수업자료용으로 직접 제작했으며, 특정 서비스나 실제 고객 데이터를 사용하지 않았습니다.
+  </text>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 500" role="img" aria-labelledby="title desc">
+  <title id="title">웹 크롤링 기본 흐름</title>
+  <desc id="desc">브라우저나 파이썬 코드가 URL로 요청을 보내고, 서버가 HTML을 반환하면 필요한 텍스트를 파싱해 데이터로 저장하는 흐름</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+    <style>
+      .kr { font-family: "Noto Sans CJK KR", "Noto Sans KR", Arial, sans-serif; }
+      .mono { font-family: Consolas, "Noto Sans Mono CJK KR", monospace; }
+    </style>
+  </defs>
+  <rect width="980" height="500" fill="#ffffff"/>
+  <text x="490" y="44" text-anchor="middle" class="kr" font-size="28" font-weight="700" fill="#111827">
+    웹 크롤링은 웹 페이지를 요청하고 필요한 텍스트를 꺼내는 과정
+  </text>
+
+  <rect x="54" y="116" width="180" height="190" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+  <text x="144" y="152" text-anchor="middle" class="kr" font-size="19" font-weight="700" fill="#1d4ed8">파이썬 코드</text>
+  <text x="144" y="190" text-anchor="middle" class="mono" font-size="14" fill="#1e3a8a">requests</text>
+  <text x="144" y="218" text-anchor="middle" class="kr" font-size="14" fill="#475569">URL과 요청 헤더</text>
+  <text x="144" y="246" text-anchor="middle" class="kr" font-size="14" fill="#475569">필요한 페이지 번호</text>
+  <text x="144" y="274" text-anchor="middle" class="kr" font-size="14" fill="#475569">종목 코드 등</text>
+
+  <line x1="246" y1="210" x2="334" y2="210" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="290" y="196" text-anchor="middle" class="kr" font-size="14" fill="#475569">HTTP 요청</text>
+
+  <rect x="350" y="116" width="180" height="190" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="440" y="152" text-anchor="middle" class="kr" font-size="19" font-weight="700" fill="#111827">웹 서버</text>
+  <text x="440" y="190" text-anchor="middle" class="kr" font-size="14" fill="#475569">HTML</text>
+  <text x="440" y="218" text-anchor="middle" class="kr" font-size="14" fill="#475569">CSS</text>
+  <text x="440" y="246" text-anchor="middle" class="kr" font-size="14" fill="#475569">JavaScript</text>
+  <text x="440" y="274" text-anchor="middle" class="kr" font-size="14" fill="#475569">데이터 조각</text>
+
+  <line x1="542" y1="210" x2="630" y2="210" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="586" y="196" text-anchor="middle" class="kr" font-size="14" fill="#475569">HTML 응답</text>
+
+  <rect x="646" y="116" width="280" height="190" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+  <text x="786" y="152" text-anchor="middle" class="kr" font-size="19" font-weight="700" fill="#166534">파싱과 저장</text>
+  <text x="786" y="190" text-anchor="middle" class="mono" font-size="14" fill="#14532d">BeautifulSoup</text>
+  <text x="786" y="222" text-anchor="middle" class="kr" font-size="14" fill="#475569">태그와 CSS 선택자로 찾기</text>
+  <text x="786" y="250" text-anchor="middle" class="kr" font-size="14" fill="#475569">제목, 날짜, 가격 등 추출</text>
+  <text x="786" y="278" text-anchor="middle" class="kr" font-size="14" fill="#475569">DataFrame / CSV로 정리</text>
+
+  <rect x="160" y="370" width="660" height="56" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+  <text x="490" y="404" text-anchor="middle" class="kr" font-size="16" font-weight="700" fill="#9a3412">
+    수집 전 확인: robots.txt, 이용약관, 요청 간격, 개인정보와 저작권
+  </text>
+</svg>

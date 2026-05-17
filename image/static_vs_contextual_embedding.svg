@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 520" role="img" aria-labelledby="title desc">
+  <title id="title">정적 임베딩과 문맥적 임베딩 비교</title>
+  <desc id="desc">은행이라는 단어가 정적 임베딩에서는 하나의 벡터지만 문맥적 임베딩에서는 문장에 따라 다른 벡터로 계산되는 모습</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+    <style>
+      .kr { font-family: "Noto Sans CJK KR", "Noto Sans KR", Arial, sans-serif; }
+    </style>
+  </defs>
+  <rect width="980" height="520" fill="#ffffff"/>
+  <text x="490" y="44" text-anchor="middle" class="kr" font-size="28" font-weight="700" fill="#111827">
+    같은 단어도 문맥에 따라 다른 벡터가 된다
+  </text>
+
+  <rect x="62" y="86" width="392" height="338" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="258" y="124" text-anchor="middle" class="kr" font-size="22" font-weight="700" fill="#1d4ed8">정적 임베딩</text>
+  <text x="258" y="154" text-anchor="middle" class="kr" font-size="15" fill="#475569">단어마다 벡터 하나를 저장해 둔다</text>
+  <rect x="146" y="196" width="224" height="56" rx="8" fill="#dbeafe" stroke="#60a5fa"/>
+  <text x="258" y="231" text-anchor="middle" class="kr" font-size="18" font-weight="700" fill="#1e3a8a">은행 → 고정 벡터 1개</text>
+  <line x1="258" y1="256" x2="258" y2="292" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="120" y="304" width="276" height="48" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="258" y="334" text-anchor="middle" class="kr" font-size="16" fill="#1e3a8a">금융기관 의미와 강가 의미가 섞임</text>
+  <text x="258" y="388" text-anchor="middle" class="kr" font-size="15" fill="#475569">문장이 달라도 같은 좌표를 사용</text>
+
+  <rect x="526" y="86" width="392" height="338" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="722" y="124" text-anchor="middle" class="kr" font-size="22" font-weight="700" fill="#166534">문맥적 임베딩</text>
+  <text x="722" y="154" text-anchor="middle" class="kr" font-size="15" fill="#475569">주변 단어를 보고 벡터를 다시 계산한다</text>
+
+  <rect x="560" y="190" width="324" height="44" rx="8" fill="#dcfce7" stroke="#22c55e"/>
+  <text x="722" y="218" text-anchor="middle" class="kr" font-size="16" fill="#14532d">은행에 가서 돈을 입금했다</text>
+  <line x1="722" y1="238" x2="722" y2="266" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="606" y="274" width="232" height="38" rx="8" fill="#bbf7d0" stroke="#16a34a"/>
+  <text x="722" y="299" text-anchor="middle" class="kr" font-size="15" font-weight="700" fill="#14532d">금융기관 쪽 벡터 강화</text>
+
+  <rect x="560" y="338" width="324" height="44" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="722" y="366" text-anchor="middle" class="kr" font-size="16" fill="#854d0e">강 은행에 앉아 쉬었다</text>
+  <line x1="722" y1="382" x2="722" y2="406" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="606" y="412" width="232" height="38" rx="8" fill="#fde68a" stroke="#f59e0b"/>
+  <text x="722" y="437" text-anchor="middle" class="kr" font-size="15" font-weight="700" fill="#854d0e">강가 의미 쪽 벡터 강화</text>
+
+  <text x="490" y="488" text-anchor="middle" class="kr" font-size="16" fill="#475569">
+    현대 NLP 모델은 단어 자체보다 문장 안에서의 역할을 반영해 표현을 만든다.
+  </text>
+</svg>

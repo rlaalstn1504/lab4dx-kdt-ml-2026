@@ -1,0 +1,15 @@
+numpy
+pandas
+matplotlib
+wordcloud
+seaborn
+beautifulsoup4
+scikit-learn
+scipy
+joblib
+xgboost
+gensim
+sentencepiece
+konlpy
+JPype1
+requests

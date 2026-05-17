@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" role="img" aria-labelledby="title desc">
+  <title id="title">원-핫 행렬 곱과 임베딩 조회 비교</title>
+  <desc id="desc">전통 방식의 원-핫 벡터 행렬 곱과 현대 방식의 정수 ID 기반 임베딩 조회를 비교한 도식</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+    <style>
+      .kr { font-family: "Noto Sans CJK KR", "Noto Sans KR", Arial, sans-serif; }
+      .mono { font-family: Consolas, "Noto Sans Mono CJK KR", monospace; }
+    </style>
+  </defs>
+
+  <rect width="1000" height="540" fill="#ffffff"/>
+
+  <text x="500" y="44" text-anchor="middle" class="kr" font-size="27" font-weight="700" fill="#111827">
+    원-핫 행렬 곱은 임베딩 행 선택으로 단순화된다
+  </text>
+
+  <!-- Traditional path -->
+  <rect x="48" y="84" width="422" height="364" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="259" y="121" text-anchor="middle" class="kr" font-size="21" font-weight="700" fill="#1e3a8a">전통 방식</text>
+  <text x="259" y="151" text-anchor="middle" class="kr" font-size="15" fill="#475569">원-핫 벡터를 만들고 행렬 곱을 수행</text>
+
+  <rect x="82" y="184" width="126" height="46" rx="8" fill="#dbeafe" stroke="#60a5fa"/>
+  <text x="145" y="213" text-anchor="middle" class="kr" font-size="17" font-weight="700" fill="#1e3a8a">토큰 ID = 3</text>
+
+  <line x1="145" y1="232" x2="145" y2="262" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <text x="84" y="288" class="kr" font-size="15" font-weight="700" fill="#111827">원-핫 벡터</text>
+  <g transform="translate(172 267)">
+    <rect x="0" y="0" width="30" height="30" fill="#e2e8f0" stroke="#94a3b8"/>
+    <rect x="34" y="0" width="30" height="30" fill="#e2e8f0" stroke="#94a3b8"/>
+    <rect x="68" y="0" width="30" height="30" fill="#2563eb" stroke="#1d4ed8"/>
+    <rect x="102" y="0" width="30" height="30" fill="#e2e8f0" stroke="#94a3b8"/>
+    <rect x="136" y="0" width="30" height="30" fill="#e2e8f0" stroke="#94a3b8"/>
+    <text x="15" y="21" text-anchor="middle" class="mono" font-size="14" fill="#475569">0</text>
+    <text x="49" y="21" text-anchor="middle" class="mono" font-size="14" fill="#475569">0</text>
+    <text x="83" y="21" text-anchor="middle" class="mono" font-size="14" font-weight="700" fill="#ffffff">1</text>
+    <text x="117" y="21" text-anchor="middle" class="mono" font-size="14" fill="#475569">0</text>
+    <text x="151" y="21" text-anchor="middle" class="mono" font-size="14" fill="#475569">0</text>
+  </g>
+
+  <text x="259" y="337" text-anchor="middle" class="kr" font-size="16" fill="#475569">
+    1이 있는 위치가 임베딩 행렬의 한 행을 고른다
+  </text>
+
+  <text x="354" y="214" text-anchor="middle" class="kr" font-size="15" font-weight="700" fill="#111827">임베딩 행렬</text>
+  <g transform="translate(316 228)">
+    <rect x="0" y="0" width="24" height="24" fill="#dbeafe" stroke="#93c5fd"/>
+    <rect x="28" y="0" width="24" height="24" fill="#dbeafe" stroke="#93c5fd"/>
+    <rect x="56" y="0" width="24" height="24" fill="#dbeafe" stroke="#93c5fd"/>
+    <rect x="0" y="28" width="24" height="24" fill="#dbeafe" stroke="#93c5fd"/>
+    <rect x="28" y="28" width="24" height="24" fill="#dbeafe" stroke="#93c5fd"/>
+    <rect x="56" y="28" width="24" height="24" fill="#dbeafe" stroke="#93c5fd"/>
+    <rect x="-4" y="56" width="88" height="28" rx="4" fill="#bfdbfe" stroke="#2563eb" stroke-width="3"/>
+    <line x1="0" y1="56" x2="0" y2="84" stroke="#2563eb"/>
+    <line x1="28" y1="56" x2="28" y2="84" stroke="#2563eb"/>
+    <line x1="56" y1="56" x2="56" y2="84" stroke="#2563eb"/>
+    <line x1="84" y1="56" x2="84" y2="84" stroke="#2563eb"/>
+    <rect x="0" y="88" width="24" height="24" fill="#dbeafe" stroke="#93c5fd"/>
+    <rect x="28" y="88" width="24" height="24" fill="#dbeafe" stroke="#93c5fd"/>
+    <rect x="56" y="88" width="24" height="24" fill="#dbeafe" stroke="#93c5fd"/>
+  </g>
+
+  <line x1="259" y1="348" x2="259" y2="374" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="126" y="384" width="266" height="42" rx="8" fill="#e0f2fe" stroke="#38bdf8"/>
+  <text x="259" y="411" text-anchor="middle" class="kr" font-size="16" font-weight="700" fill="#075985">
+    결과: 선택된 임베딩 벡터
+  </text>
+
+  <!-- Modern path -->
+  <rect x="530" y="84" width="422" height="364" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="741" y="121" text-anchor="middle" class="kr" font-size="21" font-weight="700" fill="#166534">현대 방식</text>
+  <text x="741" y="151" text-anchor="middle" class="kr" font-size="15" fill="#475569">정수 ID로 임베딩 행을 바로 조회</text>
+
+  <rect x="580" y="204" width="130" height="52" rx="8" fill="#dcfce7" stroke="#22c55e"/>
+  <text x="645" y="236" text-anchor="middle" class="kr" font-size="17" font-weight="700" fill="#14532d">토큰 ID = 3</text>
+
+  <line x1="716" y1="230" x2="770" y2="230" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="741" y="278" text-anchor="middle" class="kr" font-size="15" fill="#475569">
+    원-핫 벡터를 만들지 않고 필요한 행만 가져온다
+  </text>
+
+  <text x="846" y="188" text-anchor="middle" class="kr" font-size="15" font-weight="700" fill="#111827">임베딩 행렬</text>
+  <g transform="translate(804 202)">
+    <rect x="0" y="0" width="26" height="26" fill="#dcfce7" stroke="#86efac"/>
+    <rect x="30" y="0" width="26" height="26" fill="#dcfce7" stroke="#86efac"/>
+    <rect x="60" y="0" width="26" height="26" fill="#dcfce7" stroke="#86efac"/>
+    <rect x="0" y="32" width="26" height="26" fill="#dcfce7" stroke="#86efac"/>
+    <rect x="30" y="32" width="26" height="26" fill="#dcfce7" stroke="#86efac"/>
+    <rect x="60" y="32" width="26" height="26" fill="#dcfce7" stroke="#86efac"/>
+    <rect x="-5" y="64" width="96" height="30" rx="4" fill="#bbf7d0" stroke="#16a34a" stroke-width="3"/>
+    <line x1="0" y1="64" x2="0" y2="94" stroke="#16a34a"/>
+    <line x1="30" y1="64" x2="30" y2="94" stroke="#16a34a"/>
+    <line x1="60" y1="64" x2="60" y2="94" stroke="#16a34a"/>
+    <line x1="90" y1="64" x2="90" y2="94" stroke="#16a34a"/>
+    <rect x="0" y="100" width="26" height="26" fill="#dcfce7" stroke="#86efac"/>
+    <rect x="30" y="100" width="26" height="26" fill="#dcfce7" stroke="#86efac"/>
+    <rect x="60" y="100" width="26" height="26" fill="#dcfce7" stroke="#86efac"/>
+  </g>
+
+  <line x1="741" y1="306" x2="741" y2="374" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="608" y="384" width="266" height="42" rx="8" fill="#dcfce7" stroke="#22c55e"/>
+  <text x="741" y="411" text-anchor="middle" class="kr" font-size="16" font-weight="700" fill="#14532d">
+    같은 결과, 더 적은 계산
+  </text>
+
+  <text x="500" y="500" text-anchor="middle" class="kr" font-size="16" fill="#475569">
+    핵심: 원-핫의 1 위치는 결국 임베딩 행렬의 특정 행을 선택하는 스위치 역할을 한다.
+  </text>
+</svg>

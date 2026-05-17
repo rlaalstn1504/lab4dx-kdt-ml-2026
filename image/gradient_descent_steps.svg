@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" role="img" aria-labelledby="title desc">
+  <title id="title">경사하강법 이동 방향 도식</title>
+  <desc id="desc">손실 곡선 위에서 기울기의 반대 방향으로 조금씩 이동해 최소점에 가까워지는 과정</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#d1495b"/>
+    </marker>
+    <marker id="axis-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3f3f46"/>
+    </marker>
+  </defs>
+
+  <rect width="760" height="430" fill="#ffffff"/>
+
+  <line x1="80" y1="360" x2="705" y2="360" stroke="#3f3f46" stroke-width="2" marker-end="url(#axis-arrow)"/>
+  <line x1="80" y1="360" x2="80" y2="55" stroke="#3f3f46" stroke-width="2" marker-end="url(#axis-arrow)"/>
+  <text x="668" y="392" font-family="Arial, 'Noto Sans KR', sans-serif" font-size="18" fill="#27272a">파라미터</text>
+  <text x="30" y="72" font-family="Arial, 'Noto Sans KR', sans-serif" font-size="18" fill="#27272a">손실</text>
+
+  <path d="M 100 85 C 205 245 300 338 380 340 C 460 338 555 245 660 85"
+        fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+
+  <circle cx="642" cy="178" r="8" fill="#d1495b"/>
+  <circle cx="566" cy="255" r="8" fill="#d1495b"/>
+  <circle cx="512" cy="298" r="8" fill="#d1495b"/>
+  <circle cx="472" cy="323" r="8" fill="#d1495b"/>
+  <circle cx="442" cy="333" r="8" fill="#d1495b"/>
+  <circle cx="380" cy="340" r="8" fill="#f59e0b"/>
+
+  <path d="M 632 187 L 579 244" fill="none" stroke="#d1495b" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M 556 263 L 525 291" fill="none" stroke="#d1495b" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M 503 304 L 483 318" fill="none" stroke="#d1495b" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M 463 326 L 452 331" fill="none" stroke="#d1495b" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <line x1="603" y1="138" x2="680" y2="207" stroke="#52525b" stroke-width="3" stroke-dasharray="8 6"/>
+  <text x="570" y="122" font-family="Arial, 'Noto Sans KR', sans-serif" font-size="18" font-weight="700" fill="#27272a">현재 위치</text>
+  <text x="515" y="218" font-family="Arial, 'Noto Sans KR', sans-serif" font-size="17" fill="#52525b">기울기의 반대 방향으로 이동</text>
+
+  <text x="340" y="382" font-family="Arial, 'Noto Sans KR', sans-serif" font-size="18" font-weight="700" fill="#92400e">최소점</text>
+
+  <rect x="130" y="72" width="315" height="72" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="148" y="102" font-family="Arial, 'Noto Sans KR', sans-serif" font-size="17" fill="#27272a">새 위치 = 현재 위치 -</text>
+  <text x="148" y="130" font-family="Arial, 'Noto Sans KR', sans-serif" font-size="17" fill="#27272a">학습률 × 기울기</text>
+
+  <text x="148" y="405" font-family="Arial, 'Noto Sans KR', sans-serif" font-size="15" fill="#71717a">
+    점이 아래로 내려갈수록 손실이 작아진다.
+  </text>
+</svg>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 520" role="img" aria-labelledby="title desc">
+  <title id="title">희소 벡터와 밀집 임베딩 비교</title>
+  <desc id="desc">정수 인코딩과 원-핫 인코딩의 희소 표현이 의미를 담은 밀집 임베딩으로 바뀌는 흐름</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+    <style>
+      .kr { font-family: "Noto Sans CJK KR", "Noto Sans KR", Arial, sans-serif; }
+      .mono { font-family: Consolas, "Noto Sans Mono CJK KR", monospace; }
+    </style>
+  </defs>
+  <rect width="980" height="520" fill="#ffffff"/>
+  <text x="490" y="44" text-anchor="middle" class="kr" font-size="28" font-weight="700" fill="#111827">
+    텍스트 표현: 구분용 숫자에서 의미 벡터로
+  </text>
+
+  <rect x="58" y="86" width="250" height="330" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="183" y="124" text-anchor="middle" class="kr" font-size="20" font-weight="700" fill="#1e3a8a">정수 인코딩</text>
+  <text x="183" y="154" text-anchor="middle" class="kr" font-size="15" fill="#475569">단어마다 번호를 붙임</text>
+  <rect x="93" y="194" width="180" height="48" rx="8" fill="#dbeafe" stroke="#60a5fa"/>
+  <text x="183" y="224" text-anchor="middle" class="kr" font-size="18" font-weight="700" fill="#1e3a8a">고양이 → 2</text>
+  <text x="183" y="284" text-anchor="middle" class="kr" font-size="15" fill="#475569">숫자 크기는</text>
+  <text x="183" y="308" text-anchor="middle" class="kr" font-size="15" fill="#475569">의미와 무관</text>
+  <text x="183" y="358" text-anchor="middle" class="kr" font-size="15" fill="#b91c1c">가짜 순서 위험</text>
+
+  <line x1="318" y1="251" x2="382" y2="251" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <rect x="396" y="86" width="250" height="330" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="521" y="124" text-anchor="middle" class="kr" font-size="20" font-weight="700" fill="#7c2d12">원-핫 인코딩</text>
+  <text x="521" y="154" text-anchor="middle" class="kr" font-size="15" fill="#475569">한 위치만 1인 긴 벡터</text>
+  <g transform="translate(438 200)">
+    <rect x="0" y="0" width="30" height="30" fill="#fed7aa" stroke="#fb923c"/>
+    <rect x="36" y="0" width="30" height="30" fill="#fdba74" stroke="#ea580c" stroke-width="2"/>
+    <rect x="72" y="0" width="30" height="30" fill="#fed7aa" stroke="#fb923c"/>
+    <rect x="108" y="0" width="30" height="30" fill="#fed7aa" stroke="#fb923c"/>
+    <rect x="144" y="0" width="30" height="30" fill="#fed7aa" stroke="#fb923c"/>
+    <text x="15" y="21" text-anchor="middle" class="mono" font-size="14" fill="#9a3412">0</text>
+    <text x="51" y="21" text-anchor="middle" class="mono" font-size="14" font-weight="700" fill="#7c2d12">1</text>
+    <text x="87" y="21" text-anchor="middle" class="mono" font-size="14" fill="#9a3412">0</text>
+    <text x="123" y="21" text-anchor="middle" class="mono" font-size="14" fill="#9a3412">0</text>
+    <text x="159" y="21" text-anchor="middle" class="mono" font-size="14" fill="#9a3412">0</text>
+  </g>
+  <text x="521" y="284" text-anchor="middle" class="kr" font-size="15" fill="#475569">단어 구분은 가능</text>
+  <text x="521" y="308" text-anchor="middle" class="kr" font-size="15" fill="#475569">유사성은 표현 어려움</text>
+  <text x="521" y="358" text-anchor="middle" class="kr" font-size="15" fill="#b91c1c">고차원 · 희소</text>
+
+  <line x1="656" y1="251" x2="690" y2="251" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <rect x="704" y="86" width="230" height="330" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="819" y="124" text-anchor="middle" class="kr" font-size="20" font-weight="700" fill="#166534">임베딩</text>
+  <text x="819" y="150" text-anchor="middle" class="kr" font-size="14" fill="#475569">의미를 담은</text>
+  <text x="819" y="172" text-anchor="middle" class="kr" font-size="14" fill="#475569">밀집 벡터</text>
+  <g transform="translate(760 198)">
+    <circle cx="30" cy="34" r="9" fill="#22c55e"/>
+    <circle cx="54" cy="44" r="9" fill="#16a34a"/>
+    <circle cx="100" cy="112" r="9" fill="#2563eb"/>
+    <text x="30" y="20" text-anchor="middle" class="kr" font-size="13" fill="#166534">강아지</text>
+    <text x="58" y="68" text-anchor="middle" class="kr" font-size="13" fill="#166534">고양이</text>
+    <text x="103" y="136" text-anchor="middle" class="kr" font-size="13" fill="#1d4ed8">자동차</text>
+    <line x1="30" y1="34" x2="54" y2="44" stroke="#16a34a" stroke-width="2"/>
+  </g>
+  <text x="819" y="328" text-anchor="middle" class="kr" font-size="15" fill="#475569">비슷한 단어는</text>
+  <text x="819" y="352" text-anchor="middle" class="kr" font-size="15" fill="#475569">벡터 공간에서도 가까움</text>
+
+  <text x="490" y="476" text-anchor="middle" class="kr" font-size="16" fill="#475569">
+    핵심: 벡터화는 숫자로 바꾸는 일이고, 임베딩은 그 숫자 안에 의미 관계까지 담는 일이다.
+  </text>
+</svg>

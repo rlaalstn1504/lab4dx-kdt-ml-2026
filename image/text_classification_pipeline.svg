@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 500" role="img" aria-labelledby="title desc">
+  <title id="title">텍스트 분류 파이프라인</title>
+  <desc id="desc">짧은 리뷰 문장을 전처리하고 벡터화한 뒤 로지스틱 회귀로 학습, 예측, 해석하는 흐름</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+    <style>
+      .kr { font-family: "Noto Sans CJK KR", "Noto Sans KR", Arial, sans-serif; }
+      .mono { font-family: Consolas, "Noto Sans Mono CJK KR", monospace; }
+    </style>
+  </defs>
+  <rect width="980" height="500" fill="#ffffff"/>
+  <text x="490" y="44" text-anchor="middle" class="kr" font-size="28" font-weight="700" fill="#111827">
+    텍스트 분류 베이스라인의 전체 흐름
+  </text>
+
+  <g transform="translate(52 104)">
+    <rect x="0" y="0" width="150" height="210" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="75" y="36" text-anchor="middle" class="kr" font-size="18" font-weight="700" fill="#111827">원문 리뷰</text>
+    <text x="75" y="78" text-anchor="middle" class="kr" font-size="14" fill="#475569">배송이 빨라요</text>
+    <text x="75" y="112" text-anchor="middle" class="kr" font-size="14" fill="#475569">품질이 별로예요</text>
+    <text x="75" y="146" text-anchor="middle" class="kr" font-size="14" fill="#475569">환불이 쉬웠어요</text>
+    <text x="75" y="184" text-anchor="middle" class="kr" font-size="13" fill="#64748b">text, label</text>
+  </g>
+
+  <line x1="215" y1="209" x2="276" y2="209" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <g transform="translate(290 104)">
+    <rect x="0" y="0" width="150" height="210" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+    <text x="75" y="36" text-anchor="middle" class="kr" font-size="18" font-weight="700" fill="#1d4ed8">전처리</text>
+    <text x="75" y="82" text-anchor="middle" class="kr" font-size="14" fill="#1e3a8a">공백 정리</text>
+    <text x="75" y="116" text-anchor="middle" class="kr" font-size="14" fill="#1e3a8a">불필요 기호 제거</text>
+    <text x="75" y="150" text-anchor="middle" class="kr" font-size="14" fill="#1e3a8a">토큰화</text>
+  </g>
+
+  <line x1="453" y1="209" x2="514" y2="209" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <g transform="translate(528 104)">
+    <rect x="0" y="0" width="150" height="210" rx="10" fill="#fefce8" stroke="#facc15" stroke-width="2"/>
+    <text x="75" y="36" text-anchor="middle" class="kr" font-size="18" font-weight="700" fill="#854d0e">벡터화</text>
+    <text x="75" y="78" text-anchor="middle" class="kr" font-size="14" fill="#854d0e">CountVectorizer</text>
+    <text x="75" y="112" text-anchor="middle" class="kr" font-size="14" fill="#854d0e">TF-IDF</text>
+    <g transform="translate(30 138)">
+      <rect x="0" y="0" width="18" height="18" fill="#fde68a" stroke="#f59e0b"/>
+      <rect x="24" y="0" width="18" height="18" fill="#f59e0b" stroke="#d97706"/>
+      <rect x="48" y="0" width="18" height="18" fill="#fde68a" stroke="#f59e0b"/>
+      <rect x="72" y="0" width="18" height="18" fill="#fde68a" stroke="#f59e0b"/>
+    </g>
+  </g>
+
+  <line x1="691" y1="209" x2="752" y2="209" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <g transform="translate(766 104)">
+    <rect x="0" y="0" width="150" height="210" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+    <text x="75" y="36" text-anchor="middle" class="kr" font-size="18" font-weight="700" fill="#166534">분류 모델</text>
+    <text x="75" y="82" text-anchor="middle" class="kr" font-size="14" fill="#14532d">Logistic</text>
+    <text x="75" y="106" text-anchor="middle" class="kr" font-size="14" fill="#14532d">Regression</text>
+    <text x="75" y="148" text-anchor="middle" class="kr" font-size="14" fill="#14532d">긍정 / 부정 예측</text>
+    <text x="75" y="184" text-anchor="middle" class="kr" font-size="13" fill="#64748b">accuracy 확인</text>
+  </g>
+
+  <line x1="841" y1="320" x2="841" y2="360" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <rect x="624" y="374" width="434" height="58" rx="10" transform="translate(-217 0)" fill="#fdf2f8" stroke="#f9a8d4" stroke-width="2"/>
+  <text x="624" y="408" text-anchor="middle" class="kr" font-size="17" font-weight="700" fill="#9d174d">
+    해석: 어떤 단어가 긍정/부정 예측에 크게 작용했는가
+  </text>
+
+  <text x="490" y="468" text-anchor="middle" class="kr" font-size="16" fill="#475569">
+    핵심: 딥러닝 없이도 전처리와 벡터화가 잘 되면 기본 분류 흐름을 만들 수 있다.
+  </text>
+</svg>
