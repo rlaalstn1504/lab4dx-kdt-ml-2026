@@ -13,3 +13,4 @@ sentencepiece
 konlpy
 JPype1
 requests
+playwright
