@@ -20,3 +20,4 @@ langchain-core
 python-dotenv
 openai
 tiktoken
+koreanize_matplotlib
