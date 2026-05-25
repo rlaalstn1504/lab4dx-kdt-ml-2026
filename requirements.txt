@@ -14,3 +14,9 @@ konlpy
 JPype1
 requests
 playwright
+langchain
+langchain-openai
+langchain-core
+python-dotenv
+openai
+tiktoken
