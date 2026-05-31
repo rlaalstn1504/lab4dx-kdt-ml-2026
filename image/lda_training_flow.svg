@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="720" viewBox="0 0 1100 720" role="img" aria-labelledby="title desc">
+  <title id="title">LDA 학습 단계 시각화</title>
+  <desc id="desc">정답 라벨이 없는 문서 묶음에서 단어 빈도 행렬을 만들고, 단어의 주제 배정을 반복적으로 갱신해 문서별 주제 비율과 주제별 대표 단어를 학습하는 과정</desc>
+
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .title { font-family: "Malgun Gothic", Arial, sans-serif; font-size: 27px; font-weight: 700; fill: #0f172a; }
+      .subtitle { font-family: "Malgun Gothic", Arial, sans-serif; font-size: 15px; fill: #475569; }
+      .card { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; }
+      .panel { fill: #f8fafc; stroke: #94a3b8; stroke-width: 2; }
+      .h { font-family: "Malgun Gothic", Arial, sans-serif; font-size: 18px; font-weight: 700; fill: #0f172a; }
+      .t { font-family: "Malgun Gothic", Arial, sans-serif; font-size: 14px; fill: #334155; }
+      .s { font-family: "Malgun Gothic", Arial, sans-serif; font-size: 12px; fill: #64748b; }
+      .chip { stroke-width: 1.5; rx: 6; }
+      .blue { fill: #eff6ff; stroke: #93c5fd; }
+      .green { fill: #f0fdf4; stroke: #86efac; }
+      .orange { fill: #fff7ed; stroke: #fdba74; }
+      .purple { fill: #f5f3ff; stroke: #c4b5fd; }
+      .arrow { stroke: #64748b; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .cycle { stroke: #2563eb; stroke-width: 3; fill: none; marker-end: url(#blueArrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#64748b"/>
+    </marker>
+    <marker id="blueArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1100" height="720"/>
+
+  <text class="title" x="550" y="40" text-anchor="middle">LDA 학습 단계: 정답 라벨 없이 주제 구조를 찾기</text>
+  <text class="subtitle" x="550" y="70" text-anchor="middle">비지도학습 방식으로 문서 속 단어의 주제 배정을 반복 갱신하며 숨은 주제 패턴을 추정합니다.</text>
+
+  <g>
+    <rect class="card" x="40" y="108" width="260" height="190" rx="12"/>
+    <text class="h" x="70" y="140">1. 문서 묶음 준비</text>
+    <text class="s" x="70" y="166">정답 주제 라벨 없이 텍스트만 사용</text>
+
+    <rect class="chip blue" x="68" y="188" width="190" height="28"/>
+    <text class="t" x="82" y="207">리뷰 1: 배송 빠름 택배</text>
+    <rect class="chip green" x="68" y="226" width="206" height="28"/>
+    <text class="t" x="82" y="245">리뷰 2: 품질 소음 디자인</text>
+    <rect class="chip orange" x="68" y="264" width="190" height="28"/>
+    <text class="t" x="82" y="283">리뷰 3: 가격 쿠폰 할인</text>
+  </g>
+
+  <path class="arrow" d="M310 202 C328 202, 340 202, 358 202"/>
+
+  <g>
+    <rect class="card" x="368" y="108" width="260" height="190" rx="12"/>
+    <text class="h" x="398" y="140">2. 단어 빈도 행렬</text>
+    <text class="s" x="398" y="166">문서마다 어떤 단어가 몇 번 나왔는지 계산</text>
+
+    <rect x="410" y="188" width="176" height="84" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+    <line x1="454" y1="188" x2="454" y2="272" stroke="#cbd5e1"/>
+    <line x1="498" y1="188" x2="498" y2="272" stroke="#cbd5e1"/>
+    <line x1="542" y1="188" x2="542" y2="272" stroke="#cbd5e1"/>
+    <line x1="410" y1="216" x2="586" y2="216" stroke="#cbd5e1"/>
+    <line x1="410" y1="244" x2="586" y2="244" stroke="#cbd5e1"/>
+    <text class="s" x="432" y="207" text-anchor="middle">배송</text>
+    <text class="s" x="476" y="207" text-anchor="middle">품질</text>
+    <text class="s" x="520" y="207" text-anchor="middle">가격</text>
+    <text class="s" x="564" y="207" text-anchor="middle">쿠폰</text>
+    <text class="t" x="432" y="235" text-anchor="middle">2</text>
+    <text class="t" x="476" y="235" text-anchor="middle">0</text>
+    <text class="t" x="520" y="235" text-anchor="middle">0</text>
+    <text class="t" x="564" y="235" text-anchor="middle">0</text>
+    <text class="t" x="432" y="263" text-anchor="middle">0</text>
+    <text class="t" x="476" y="263" text-anchor="middle">1</text>
+    <text class="t" x="520" y="263" text-anchor="middle">0</text>
+    <text class="t" x="564" y="263" text-anchor="middle">0</text>
+  </g>
+
+  <path class="arrow" d="M638 202 C656 202, 668 202, 686 202"/>
+
+  <g>
+    <rect class="card" x="696" y="108" width="364" height="190" rx="12"/>
+    <text class="h" x="726" y="140">3. 주제 개수와 초기 배정</text>
+    <text class="s" x="726" y="166">예: 주제 3개를 찾도록 설정하고 단어에 임시 주제를 붙임</text>
+
+    <rect class="chip blue" x="728" y="191" width="90" height="30"/>
+    <text class="t" x="773" y="211" text-anchor="middle">주제 1</text>
+    <rect class="chip green" x="832" y="191" width="90" height="30"/>
+    <text class="t" x="877" y="211" text-anchor="middle">주제 2</text>
+    <rect class="chip orange" x="936" y="191" width="90" height="30"/>
+    <text class="t" x="981" y="211" text-anchor="middle">주제 3</text>
+
+    <text class="s" x="736" y="251">처음 배정은 임시값이라 학습 중 계속 바뀔 수 있습니다.</text>
+    <text class="s" x="736" y="275">모델은 더 자연스러운 주제 배정을 반복해서 찾습니다.</text>
+  </g>
+
+  <path class="arrow" d="M878 306 C878 324, 878 336, 878 354"/>
+
+  <g>
+    <rect class="panel" x="80" y="358" width="940" height="178" rx="16"/>
+    <text class="h" x="550" y="390" text-anchor="middle">4. 반복 학습: 단어의 주제 배정을 계속 갱신</text>
+    <text class="subtitle" x="550" y="416" text-anchor="middle">각 단어를 보며 “이 문서의 주제 흐름”과 “이 주제의 대표 단어”에 더 잘 맞는 쪽으로 다시 배정합니다.</text>
+
+    <rect x="122" y="445" width="246" height="64" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+    <text class="h" x="245" y="471" text-anchor="middle" font-size="16">문서 안 기준</text>
+    <text class="t" x="245" y="495" text-anchor="middle">이 문서에는 어떤 주제가 많은가?</text>
+
+    <rect x="427" y="445" width="246" height="64" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text class="h" x="550" y="471" text-anchor="middle" font-size="16">단어 주제 배정 갱신</text>
+    <text class="t" x="550" y="495" text-anchor="middle">배송 단어는 배송 주제에 더 가깝게</text>
+
+    <rect x="732" y="445" width="246" height="64" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+    <text class="h" x="855" y="471" text-anchor="middle" font-size="16">주제 안 기준</text>
+    <text class="t" x="855" y="495" text-anchor="middle">이 주제에는 어떤 단어가 많은가?</text>
+
+    <path class="cycle" d="M374 477 C394 477, 404 477, 424 477"/>
+    <path class="cycle" d="M678 477 C698 477, 708 477, 728 477"/>
+    <path class="cycle" d="M855 438 C820 420, 280 420, 245 438"/>
+    <text class="s" x="550" y="525" text-anchor="middle">이 과정을 여러 번 반복하면 단어 배정이 안정되고, 주제별 단어 패턴이 선명해집니다.</text>
+  </g>
+
+  <path class="arrow" d="M550 542 C550 560, 550 572, 550 590"/>
+
+  <g>
+    <rect class="card" x="96" y="596" width="420" height="104" rx="12"/>
+    <text class="h" x="126" y="625">5-1. 문서별 주제 비율</text>
+    <text class="s" x="126" y="650">각 문서에 주제가 얼마나 섞였는지 계산</text>
+    <rect x="126" y="664" width="330" height="16" rx="8" fill="#e2e8f0"/>
+    <rect x="126" y="664" width="231" height="16" rx="8" fill="#60a5fa"/>
+    <rect x="357" y="664" width="66" height="16" fill="#86efac"/>
+    <rect x="423" y="664" width="33" height="16" rx="8" fill="#fdba74"/>
+    <text class="s" x="126" y="693">리뷰 1: 배송 70%, 품질 20%, 가격 10%</text>
+  </g>
+
+  <g>
+    <rect class="card" x="584" y="596" width="420" height="104" rx="12"/>
+    <text class="h" x="614" y="625">5-2. 주제별 대표 단어</text>
+    <text class="s" x="614" y="650">대표 단어를 보고 사람이 주제 이름을 붙임</text>
+    <rect class="chip blue" x="614" y="664" width="108" height="26"/>
+    <text class="s" x="668" y="681" text-anchor="middle">배송, 택배</text>
+    <rect class="chip green" x="738" y="664" width="112" height="26"/>
+    <text class="s" x="794" y="681" text-anchor="middle">품질, 소음</text>
+    <rect class="chip orange" x="866" y="664" width="112" height="26"/>
+    <text class="s" x="922" y="681" text-anchor="middle">가격, 쿠폰</text>
+  </g>
+</svg>

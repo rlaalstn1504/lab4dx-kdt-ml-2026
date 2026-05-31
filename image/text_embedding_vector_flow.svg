@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="590" viewBox="0 0 980 590" role="img" aria-labelledby="title desc">
+  <title id="title">텍스트 임베딩 과정</title>
+  <desc id="desc">텍스트 문장이 임베딩 모델을 거쳐 실수형 벡터로 바뀌고, 의미가 비슷한 문장끼리 벡터 공간에서 가까워지는 과정을 보여주는 그림</desc>
+
+  <defs>
+    <style>
+      .title { font-family: "Malgun Gothic", Arial, sans-serif; font-size: 26px; font-weight: 700; fill: #0f172a; }
+      .subtitle { font-family: "Malgun Gothic", Arial, sans-serif; font-size: 15px; fill: #475569; }
+      .h { font-family: "Malgun Gothic", Arial, sans-serif; font-size: 18px; font-weight: 700; fill: #0f172a; }
+      .t { font-family: "Malgun Gothic", Arial, sans-serif; font-size: 14px; fill: #334155; }
+      .s { font-family: "Malgun Gothic", Arial, sans-serif; font-size: 12px; fill: #64748b; }
+      .card { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; }
+      .blue { fill: #eff6ff; stroke: #93c5fd; }
+      .green { fill: #f0fdf4; stroke: #86efac; }
+      .orange { fill: #fff7ed; stroke: #fdba74; }
+      .purple { fill: #f5f3ff; stroke: #c4b5fd; }
+      .arrow { stroke: #64748b; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 5 5; fill: none; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="980" height="590" fill="#ffffff"/>
+
+  <text class="title" x="490" y="40" text-anchor="middle">임베딩: 텍스트를 실수형 벡터로 바꾸기</text>
+  <text class="subtitle" x="490" y="70" text-anchor="middle">문장의 의미를 여러 차원의 숫자 좌표로 표현하면 유사도 계산과 검색이 가능해집니다.</text>
+
+  <g>
+    <rect class="card" x="42" y="118" width="245" height="258" rx="12"/>
+    <text class="h" x="72" y="150">1. 입력 텍스트</text>
+    <text class="s" x="72" y="176">사람이 읽는 문장 또는 문서</text>
+
+    <rect class="blue" x="70" y="202" width="190" height="42" rx="8"/>
+    <text class="t" x="165" y="220" text-anchor="middle">스타벅스 선불카드</text>
+    <text class="t" x="165" y="238" text-anchor="middle">환불 논란</text>
+
+    <rect class="green" x="70" y="262" width="190" height="42" rx="8"/>
+    <text class="t" x="165" y="280" text-anchor="middle">카드 환불 기준이</text>
+    <text class="t" x="165" y="298" text-anchor="middle">바뀌었다</text>
+
+    <rect class="orange" x="70" y="322" width="190" height="42" rx="8"/>
+    <text class="t" x="165" y="340" text-anchor="middle">신제품 디자인</text>
+    <text class="t" x="165" y="358" text-anchor="middle">반응 조사</text>
+  </g>
+
+  <path class="arrow" d="M300 238 C324 238, 340 238, 364 238"/>
+
+  <g>
+    <rect class="purple" x="374" y="154" width="230" height="168" rx="18" stroke-width="2"/>
+    <text class="h" x="489" y="195" text-anchor="middle">2. 임베딩 모델</text>
+    <text class="t" x="489" y="224" text-anchor="middle">문맥과 의미를 읽고</text>
+    <text class="t" x="489" y="249" text-anchor="middle">숫자 좌표로 변환</text>
+    <text class="s" x="489" y="284" text-anchor="middle">예: text-embedding-3-small</text>
+  </g>
+
+  <path class="arrow" d="M614 238 C638 238, 654 238, 678 238"/>
+
+  <g>
+    <rect class="card" x="688" y="118" width="250" height="258" rx="12"/>
+    <text class="h" x="718" y="150">3. 실수형 벡터</text>
+    <text class="s" x="718" y="176">각 문장이 긴 숫자 배열이 됨</text>
+
+    <rect class="blue" x="718" y="202" width="190" height="42" rx="8"/>
+    <text class="t" x="813" y="228" text-anchor="middle">[0.13, -0.82, 0.44, ...]</text>
+
+    <rect class="green" x="718" y="262" width="190" height="42" rx="8"/>
+    <text class="t" x="813" y="288" text-anchor="middle">[0.11, -0.79, 0.39, ...]</text>
+
+    <rect class="orange" x="718" y="322" width="190" height="42" rx="8"/>
+    <text class="t" x="813" y="348" text-anchor="middle">[-0.54, 0.22, 0.08, ...]</text>
+  </g>
+
+  <g>
+    <rect class="card" x="106" y="404" width="768" height="116" rx="12"/>
+    <text class="h" x="146" y="435">벡터로 바꾸면 가능한 일</text>
+    <text class="t" x="146" y="459">의미가 비슷한 문장은 벡터 패턴도 비슷합니다.</text>
+    <text class="t" x="146" y="477">그래서 가까운 문서를 계산으로 찾을 수 있습니다.</text>
+  </g>
+
+  <g>
+    <line x1="674" y1="430" x2="674" y2="498" stroke="#cbd5e1"/>
+    <line x1="636" y1="478" x2="726" y2="478" stroke="#cbd5e1"/>
+    <circle cx="664" cy="454" r="8" fill="#60a5fa"/>
+    <circle cx="678" cy="450" r="8" fill="#34d399"/>
+    <circle cx="718" cy="490" r="8" fill="#fb923c"/>
+    <path class="dash" d="M664 454 L678 450"/>
+    <text class="s" x="744" y="455">비슷한 주제는 가까움</text>
+    <text class="s" x="744" y="493">다른 주제는 멀어짐</text>
+  </g>
+
+  <text class="s" x="490" y="560" text-anchor="middle">그림의 숫자는 이해를 돕기 위한 예시입니다. 실제 임베딩 벡터는 훨씬 더 많은 차원의 실수로 구성됩니다.</text>
+</svg>

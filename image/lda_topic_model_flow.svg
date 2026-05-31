@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" role="img" aria-labelledby="title desc">
+  <title id="title">LDA 주제 모델링 흐름</title>
+  <desc id="desc">LDA는 각 문서를 여러 주제의 혼합으로 보고, 각 주제를 대표 단어의 묶음으로 설명합니다.</desc>
+  <rect width="980" height="560" fill="#ffffff"/>
+
+  <text x="490" y="42" text-anchor="middle" font-family="Malgun Gothic, Arial, sans-serif" font-size="28" font-weight="700" fill="#1f2937">
+    LDA: 문서는 여러 주제가 섞인 결과
+  </text>
+  <text x="490" y="72" text-anchor="middle" font-family="Malgun Gothic, Arial, sans-serif" font-size="15" fill="#4b5563">
+    문서 묶음에서 반복적으로 함께 등장하는 단어 패턴을 찾아 주제를 추정합니다
+  </text>
+
+  <rect x="56" y="112" width="230" height="305" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="171" y="142" text-anchor="middle" font-family="Malgun Gothic, Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a">
+    문서 묶음
+  </text>
+  <g font-family="Malgun Gothic, Arial, sans-serif" font-size="14" fill="#334155">
+    <rect x="86" y="168" width="170" height="52" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+    <text x="102" y="192">문서 1: 배송,</text>
+    <text x="102" y="210">지연, 택배...</text>
+    <rect x="86" y="238" width="170" height="52" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+    <text x="102" y="262">문서 2: 품질,</text>
+    <text x="102" y="280">소음, 디자인...</text>
+    <rect x="86" y="308" width="170" height="52" rx="6" fill="#fff7ed" stroke="#fdba74"/>
+    <text x="102" y="332">문서 3: 가격,</text>
+    <text x="102" y="350">쿠폰, 할인...</text>
+  </g>
+
+  <path d="M305 262 C340 262, 355 262, 390 262" stroke="#64748b" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="400" y="112" width="245" height="305" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="522" y="142" text-anchor="middle" font-family="Malgun Gothic, Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a">
+    문서별 주제 비율
+  </text>
+  <text x="522" y="166" text-anchor="middle" font-family="Malgun Gothic, Arial, sans-serif" font-size="13" fill="#64748b">
+    각 문서에 어떤 주제가 얼마나 섞였는가
+  </text>
+
+  <g font-family="Malgun Gothic, Arial, sans-serif" font-size="13" fill="#334155">
+    <text x="430" y="205">문서 1</text>
+    <rect x="480" y="190" width="105" height="18" fill="#2563eb"/>
+    <rect x="585" y="190" width="30" height="18" fill="#16a34a"/>
+    <rect x="615" y="190" width="10" height="18" fill="#f97316"/>
+    <text x="430" y="260">문서 2</text>
+    <rect x="480" y="245" width="18" height="18" fill="#2563eb"/>
+    <rect x="498" y="245" width="98" height="18" fill="#16a34a"/>
+    <rect x="596" y="245" width="29" height="18" fill="#f97316"/>
+    <text x="430" y="315">문서 3</text>
+    <rect x="480" y="300" width="12" height="18" fill="#2563eb"/>
+    <rect x="492" y="300" width="28" height="18" fill="#16a34a"/>
+    <rect x="520" y="300" width="105" height="18" fill="#f97316"/>
+  </g>
+
+  <g font-family="Malgun Gothic, Arial, sans-serif" font-size="13" fill="#334155">
+    <circle cx="420" cy="370" r="7" fill="#2563eb"/><text x="434" y="375">배송 주제</text>
+    <circle cx="518" cy="370" r="7" fill="#16a34a"/><text x="532" y="375">품질 주제</text>
+    <circle cx="616" cy="370" r="7" fill="#f97316"/><text x="630" y="375">가격 주제</text>
+  </g>
+
+  <path d="M665 262 C700 262, 715 262, 750 262" stroke="#64748b" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="760" y="112" width="170" height="305" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="845" y="142" text-anchor="middle" font-family="Malgun Gothic, Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a">
+    주제별 대표 단어
+  </text>
+  <text x="845" y="166" text-anchor="middle" font-family="Malgun Gothic, Arial, sans-serif" font-size="13" fill="#64748b">
+    대표 단어를 보고 의미를 해석
+  </text>
+
+  <g font-family="Malgun Gothic, Arial, sans-serif" font-size="14" fill="#1f2937">
+    <rect x="788" y="190" width="114" height="54" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+    <text x="804" y="213">배송</text>
+    <text x="804" y="232">택배, 지연</text>
+    <rect x="788" y="260" width="114" height="54" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+    <text x="804" y="283">품질</text>
+    <text x="804" y="302">소음, 디자인</text>
+    <rect x="788" y="330" width="114" height="54" rx="6" fill="#fff7ed" stroke="#fdba74"/>
+    <text x="804" y="353">가격</text>
+    <text x="804" y="372">쿠폰, 할인</text>
+  </g>
+
+  <rect x="108" y="455" width="764" height="58" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="490" y="480" text-anchor="middle" font-family="Malgun Gothic, Arial, sans-serif" font-size="15" fill="#334155">
+    LDA는 문서별 주제 비율과 주제별 대표 단어를 동시에 추정합니다.
+  </text>
+  <text x="490" y="503" text-anchor="middle" font-family="Malgun Gothic, Arial, sans-serif" font-size="14" fill="#64748b">
+    학습 후에는 대표 단어를 보고 사람이 주제 이름을 붙여 해석합니다.
+  </text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>
