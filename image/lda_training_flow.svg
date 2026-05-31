@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="720" viewBox="0 0 1100 720" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="760" viewBox="0 0 1100 760" role="img" aria-labelledby="title desc">
   <title id="title">LDA 학습 단계 시각화</title>
-  <desc id="desc">정답 라벨이 없는 문서 묶음에서 단어 빈도 행렬을 만들고, 단어의 주제 배정을 반복적으로 갱신해 문서별 주제 비율과 주제별 대표 단어를 학습하는 과정</desc>
+  <desc id="desc">문서는 여러 토픽의 비율로 구성되고, 토픽은 단어들의 확률 분포라는 LDA의 핵심 개념을 초심자용 예시로 설명하는 그림</desc>
 
   <defs>
     <style>
@@ -10,8 +10,10 @@
       .card { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; }
       .panel { fill: #f8fafc; stroke: #94a3b8; stroke-width: 2; }
       .h { font-family: "Malgun Gothic", Arial, sans-serif; font-size: 18px; font-weight: 700; fill: #0f172a; }
+      .m { font-family: "Malgun Gothic", Arial, sans-serif; font-size: 15px; font-weight: 700; fill: #0f172a; }
       .t { font-family: "Malgun Gothic", Arial, sans-serif; font-size: 14px; fill: #334155; }
       .s { font-family: "Malgun Gothic", Arial, sans-serif; font-size: 12px; fill: #64748b; }
+      .xs { font-family: "Malgun Gothic", Arial, sans-serif; font-size: 11px; fill: #64748b; }
       .chip { stroke-width: 1.5; rx: 6; }
       .blue { fill: #eff6ff; stroke: #93c5fd; }
       .green { fill: #f0fdf4; stroke: #86efac; }
@@ -19,6 +21,11 @@
       .purple { fill: #f5f3ff; stroke: #c4b5fd; }
       .arrow { stroke: #64748b; stroke-width: 3; fill: none; marker-end: url(#arrow); }
       .cycle { stroke: #2563eb; stroke-width: 3; fill: none; marker-end: url(#blueArrow); }
+      .grid { stroke: #cbd5e1; stroke-width: 1.3; }
+      .bar-bg { fill: #e2e8f0; }
+      .bar-football { fill: #60a5fa; }
+      .bar-movie { fill: #86efac; }
+      .bar-food { fill: #fdba74; }
     </style>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
       <path d="M0 0 L10 5 L0 10 z" fill="#64748b"/>
@@ -28,116 +35,147 @@
     </marker>
   </defs>
 
-  <rect class="bg" width="1100" height="720"/>
+  <rect class="bg" width="1100" height="760"/>
 
-  <text class="title" x="550" y="40" text-anchor="middle">LDA 학습 단계: 정답 라벨 없이 주제 구조를 찾기</text>
-  <text class="subtitle" x="550" y="70" text-anchor="middle">비지도학습 방식으로 문서 속 단어의 주제 배정을 반복 갱신하며 숨은 주제 패턴을 추정합니다.</text>
+  <text class="title" x="550" y="40" text-anchor="middle">LDA 학습 단계: 문서 안의 숨은 토픽 비율 찾기</text>
+  <text class="subtitle" x="550" y="70" text-anchor="middle">핵심: 문서는 여러 토픽의 비율이고, 토픽은 단어들의 확률 분포입니다.</text>
 
   <g>
-    <rect class="card" x="40" y="108" width="260" height="190" rx="12"/>
+    <rect class="card" x="40" y="108" width="260" height="198" rx="12"/>
     <text class="h" x="70" y="140">1. 문서 묶음 준비</text>
-    <text class="s" x="70" y="166">정답 주제 라벨 없이 텍스트만 사용</text>
+    <text class="s" x="70" y="166">정답 라벨 없이 텍스트만 사용</text>
 
-    <rect class="chip blue" x="68" y="188" width="190" height="28"/>
-    <text class="t" x="82" y="207">리뷰 1: 배송 빠름 택배</text>
-    <rect class="chip green" x="68" y="226" width="206" height="28"/>
-    <text class="t" x="82" y="245">리뷰 2: 품질 소음 디자인</text>
-    <rect class="chip orange" x="68" y="264" width="190" height="28"/>
-    <text class="t" x="82" y="283">리뷰 3: 가격 쿠폰 할인</text>
+    <rect class="chip blue" x="66" y="186" width="214" height="30"/>
+    <text class="t" x="78" y="206">문서 A: 축구 골 선수 경기</text>
+    <rect class="chip green" x="66" y="225" width="214" height="30"/>
+    <text class="t" x="78" y="245">문서 B: 영화 배우 감독 장면</text>
+    <rect class="chip orange" x="66" y="264" width="214" height="30"/>
+    <text class="t" x="78" y="284">문서 C: 음식 맛 메뉴 식당</text>
   </g>
 
-  <path class="arrow" d="M310 202 C328 202, 340 202, 358 202"/>
+  <path class="arrow" d="M310 207 C328 207, 340 207, 358 207"/>
 
   <g>
-    <rect class="card" x="368" y="108" width="260" height="190" rx="12"/>
-    <text class="h" x="398" y="140">2. 단어 빈도 행렬</text>
-    <text class="s" x="398" y="166">문서마다 어떤 단어가 몇 번 나왔는지 계산</text>
+    <rect class="card" x="368" y="108" width="280" height="198" rx="12"/>
+    <text class="h" x="398" y="140">2. 문서-단어 행렬</text>
+    <text class="s" x="398" y="166">숫자는 각 문서에서 단어가 나온 횟수</text>
 
-    <rect x="410" y="188" width="176" height="84" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
-    <line x1="454" y1="188" x2="454" y2="272" stroke="#cbd5e1"/>
-    <line x1="498" y1="188" x2="498" y2="272" stroke="#cbd5e1"/>
-    <line x1="542" y1="188" x2="542" y2="272" stroke="#cbd5e1"/>
-    <line x1="410" y1="216" x2="586" y2="216" stroke="#cbd5e1"/>
-    <line x1="410" y1="244" x2="586" y2="244" stroke="#cbd5e1"/>
-    <text class="s" x="432" y="207" text-anchor="middle">배송</text>
-    <text class="s" x="476" y="207" text-anchor="middle">품질</text>
-    <text class="s" x="520" y="207" text-anchor="middle">가격</text>
-    <text class="s" x="564" y="207" text-anchor="middle">쿠폰</text>
-    <text class="t" x="432" y="235" text-anchor="middle">2</text>
-    <text class="t" x="476" y="235" text-anchor="middle">0</text>
-    <text class="t" x="520" y="235" text-anchor="middle">0</text>
-    <text class="t" x="564" y="235" text-anchor="middle">0</text>
-    <text class="t" x="432" y="263" text-anchor="middle">0</text>
-    <text class="t" x="476" y="263" text-anchor="middle">1</text>
-    <text class="t" x="520" y="263" text-anchor="middle">0</text>
-    <text class="t" x="564" y="263" text-anchor="middle">0</text>
+    <rect x="392" y="184" width="232" height="96" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+    <line x1="430" y1="184" x2="430" y2="280" class="grid"/>
+    <line x1="469" y1="184" x2="469" y2="280" class="grid"/>
+    <line x1="508" y1="184" x2="508" y2="280" class="grid"/>
+    <line x1="547" y1="184" x2="547" y2="280" class="grid"/>
+    <line x1="586" y1="184" x2="586" y2="280" class="grid"/>
+    <line x1="392" y1="208" x2="624" y2="208" class="grid"/>
+    <line x1="392" y1="232" x2="624" y2="232" class="grid"/>
+    <line x1="392" y1="256" x2="624" y2="256" class="grid"/>
+
+    <text class="xs" x="411" y="201" text-anchor="middle">문서</text>
+    <text class="xs" x="450" y="201" text-anchor="middle">축구</text>
+    <text class="xs" x="489" y="201" text-anchor="middle">골</text>
+    <text class="xs" x="528" y="201" text-anchor="middle">영화</text>
+    <text class="xs" x="567" y="201" text-anchor="middle">배우</text>
+    <text class="xs" x="605" y="201" text-anchor="middle">음식</text>
+
+    <text class="xs" x="411" y="225" text-anchor="middle">A</text>
+    <text class="t" x="450" y="226" text-anchor="middle">2</text>
+    <text class="t" x="489" y="226" text-anchor="middle">1</text>
+    <text class="t" x="528" y="226" text-anchor="middle">0</text>
+    <text class="t" x="567" y="226" text-anchor="middle">0</text>
+    <text class="t" x="605" y="226" text-anchor="middle">0</text>
+
+    <text class="xs" x="411" y="249" text-anchor="middle">B</text>
+    <text class="t" x="450" y="250" text-anchor="middle">0</text>
+    <text class="t" x="489" y="250" text-anchor="middle">0</text>
+    <text class="t" x="528" y="250" text-anchor="middle">2</text>
+    <text class="t" x="567" y="250" text-anchor="middle">1</text>
+    <text class="t" x="605" y="250" text-anchor="middle">0</text>
+
+    <text class="xs" x="411" y="273" text-anchor="middle">C</text>
+    <text class="t" x="450" y="274" text-anchor="middle">0</text>
+    <text class="t" x="489" y="274" text-anchor="middle">0</text>
+    <text class="t" x="528" y="274" text-anchor="middle">0</text>
+    <text class="t" x="567" y="274" text-anchor="middle">0</text>
+    <text class="t" x="605" y="274" text-anchor="middle">2</text>
+    <text class="xs" x="398" y="296">예: 문서 A에서 '축구'가 2번 등장</text>
   </g>
 
-  <path class="arrow" d="M638 202 C656 202, 668 202, 686 202"/>
+  <path class="arrow" d="M658 207 C676 207, 688 207, 706 207"/>
 
   <g>
-    <rect class="card" x="696" y="108" width="364" height="190" rx="12"/>
-    <text class="h" x="726" y="140">3. 주제 개수와 초기 배정</text>
-    <text class="s" x="726" y="166">예: 주제 3개를 찾도록 설정하고 단어에 임시 주제를 붙임</text>
+    <rect class="card" x="716" y="108" width="344" height="198" rx="12"/>
+    <text class="h" x="746" y="140">3. 찾을 토픽 개수 정하기</text>
+    <text class="s" x="746" y="166">예: 3개 토픽을 찾도록 설정</text>
 
-    <rect class="chip blue" x="728" y="191" width="90" height="30"/>
-    <text class="t" x="773" y="211" text-anchor="middle">주제 1</text>
-    <rect class="chip green" x="832" y="191" width="90" height="30"/>
-    <text class="t" x="877" y="211" text-anchor="middle">주제 2</text>
-    <rect class="chip orange" x="936" y="191" width="90" height="30"/>
-    <text class="t" x="981" y="211" text-anchor="middle">주제 3</text>
+    <rect class="chip blue" x="746" y="191" width="106" height="32"/>
+    <text class="t" x="799" y="212" text-anchor="middle">축구 토픽</text>
+    <rect class="chip green" x="866" y="191" width="106" height="32"/>
+    <text class="t" x="919" y="212" text-anchor="middle">영화 토픽</text>
+    <rect class="chip orange" x="746" y="236" width="106" height="32"/>
+    <text class="t" x="799" y="257" text-anchor="middle">음식 토픽</text>
 
-    <text class="s" x="736" y="251">처음 배정은 임시값이라 학습 중 계속 바뀔 수 있습니다.</text>
-    <text class="s" x="736" y="275">모델은 더 자연스러운 주제 배정을 반복해서 찾습니다.</text>
+    <text class="s" x="866" y="246">처음에는 임시 추정입니다.</text>
+    <text class="s" x="866" y="270">반복 학습으로 단어 분포가 조정됩니다.</text>
   </g>
 
-  <path class="arrow" d="M878 306 C878 324, 878 336, 878 354"/>
+  <path class="arrow" d="M888 314 C888 332, 888 344, 888 362"/>
 
   <g>
-    <rect class="panel" x="80" y="358" width="940" height="178" rx="16"/>
-    <text class="h" x="550" y="390" text-anchor="middle">4. 반복 학습: 단어의 주제 배정을 계속 갱신</text>
-    <text class="subtitle" x="550" y="416" text-anchor="middle">각 단어를 보며 “이 문서의 주제 흐름”과 “이 주제의 대표 단어”에 더 잘 맞는 쪽으로 다시 배정합니다.</text>
+    <rect class="panel" x="80" y="364" width="940" height="168" rx="16"/>
+    <text class="h" x="550" y="395" text-anchor="middle">4. 반복 학습: 토픽과 단어 분포를 번갈아 조정</text>
+    <text class="subtitle" x="550" y="421" text-anchor="middle">문서 안 단어들을 보며 어떤 토픽이 자연스러운지 여러 번 다시 계산합니다.</text>
 
-    <rect x="122" y="445" width="246" height="64" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
-    <text class="h" x="245" y="471" text-anchor="middle" font-size="16">문서 안 기준</text>
-    <text class="t" x="245" y="495" text-anchor="middle">이 문서에는 어떤 주제가 많은가?</text>
+    <rect x="128" y="452" width="170" height="52" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+    <text class="m" x="213" y="484" text-anchor="middle">토픽 추정</text>
 
-    <rect x="427" y="445" width="246" height="64" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
-    <text class="h" x="550" y="471" text-anchor="middle" font-size="16">단어 주제 배정 갱신</text>
-    <text class="t" x="550" y="495" text-anchor="middle">배송 단어는 배송 주제에 더 가깝게</text>
+    <rect x="354" y="452" width="180" height="52" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text class="m" x="444" y="484" text-anchor="middle">단어 분포 수정</text>
 
-    <rect x="732" y="445" width="246" height="64" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
-    <text class="h" x="855" y="471" text-anchor="middle" font-size="16">주제 안 기준</text>
-    <text class="t" x="855" y="495" text-anchor="middle">이 주제에는 어떤 단어가 많은가?</text>
+    <rect x="590" y="452" width="180" height="52" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+    <text class="m" x="680" y="484" text-anchor="middle">다시 토픽 추정</text>
 
-    <path class="cycle" d="M374 477 C394 477, 404 477, 424 477"/>
-    <path class="cycle" d="M678 477 C698 477, 708 477, 728 477"/>
-    <path class="cycle" d="M855 438 C820 420, 280 420, 245 438"/>
-    <text class="s" x="550" y="525" text-anchor="middle">이 과정을 여러 번 반복하면 단어 배정이 안정되고, 주제별 단어 패턴이 선명해집니다.</text>
+    <rect x="826" y="452" width="130" height="52" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+    <text class="m" x="891" y="484" text-anchor="middle">반복 학습</text>
+
+    <path class="cycle" d="M300 478 C318 478, 332 478, 350 478"/>
+    <path class="cycle" d="M536 478 C554 478, 568 478, 586 478"/>
+    <path class="cycle" d="M772 478 C790 478, 804 478, 822 478"/>
+    <path class="cycle" d="M891 445 C845 426, 258 426, 213 445"/>
+    <text class="s" x="550" y="519" text-anchor="middle">반복이 끝나면 문서별 토픽 비율과 토픽별 단어 확률이 만들어집니다.</text>
   </g>
 
-  <path class="arrow" d="M550 542 C550 560, 550 572, 550 590"/>
+  <path class="arrow" d="M550 538 C550 556, 550 568, 550 588"/>
 
   <g>
-    <rect class="card" x="96" y="596" width="420" height="104" rx="12"/>
-    <text class="h" x="126" y="625">5-1. 문서별 주제 비율</text>
-    <text class="s" x="126" y="650">각 문서에 주제가 얼마나 섞였는지 계산</text>
-    <rect x="126" y="664" width="330" height="16" rx="8" fill="#e2e8f0"/>
-    <rect x="126" y="664" width="231" height="16" rx="8" fill="#60a5fa"/>
-    <rect x="357" y="664" width="66" height="16" fill="#86efac"/>
-    <rect x="423" y="664" width="33" height="16" rx="8" fill="#fdba74"/>
-    <text class="s" x="126" y="693">리뷰 1: 배송 70%, 품질 20%, 가격 10%</text>
+    <rect class="card" x="56" y="596" width="506" height="136" rx="12"/>
+    <text class="h" x="86" y="624">5-1. 문서별 토픽 비율</text>
+    <text class="s" x="86" y="648">문서 하나가 여러 토픽의 비율로 표현됨</text>
+
+    <rect x="86" y="663" width="330" height="14" rx="7" class="bar-bg"/>
+    <rect x="86" y="663" width="231" height="14" rx="7" class="bar-football"/>
+    <rect x="317" y="663" width="66" height="14" class="bar-movie"/>
+    <rect x="383" y="663" width="33" height="14" rx="7" class="bar-food"/>
+    <text class="s" x="430" y="676">문서 A : 축구 70%, 영화 20%, 음식 10%</text>
+
+    <rect x="86" y="684" width="330" height="14" rx="7" class="bar-bg"/>
+    <rect x="86" y="684" width="264" height="14" rx="7" class="bar-movie"/>
+    <rect x="350" y="684" width="33" height="14" class="bar-football"/>
+    <rect x="383" y="684" width="33" height="14" rx="7" class="bar-food"/>
+    <text class="s" x="430" y="697">문서 B : 영화 80%, 축구 10%, 음식 10%</text>
   </g>
 
   <g>
-    <rect class="card" x="584" y="596" width="420" height="104" rx="12"/>
-    <text class="h" x="614" y="625">5-2. 주제별 대표 단어</text>
-    <text class="s" x="614" y="650">대표 단어를 보고 사람이 주제 이름을 붙임</text>
-    <rect class="chip blue" x="614" y="664" width="108" height="26"/>
-    <text class="s" x="668" y="681" text-anchor="middle">배송, 택배</text>
-    <rect class="chip green" x="738" y="664" width="112" height="26"/>
-    <text class="s" x="794" y="681" text-anchor="middle">품질, 소음</text>
-    <rect class="chip orange" x="866" y="664" width="112" height="26"/>
-    <text class="s" x="922" y="681" text-anchor="middle">가격, 쿠폰</text>
+    <rect class="card" x="594" y="596" width="450" height="136" rx="12"/>
+    <text class="h" x="624" y="624">5-2. 토픽별 단어 분포</text>
+    <text class="s" x="624" y="648">토픽은 단어들이 나올 확률의 묶음</text>
+
+    <rect class="chip blue" x="624" y="662" width="330" height="22"/>
+    <text class="s" x="638" y="677">축구 토픽 : 축구 40%, 골 30%, 선수 20%</text>
+
+    <rect class="chip green" x="624" y="686" width="330" height="22"/>
+    <text class="s" x="638" y="701">영화 토픽 : 영화 35%, 배우 30%, 감독 20%</text>
+
+    <rect class="chip orange" x="624" y="710" width="330" height="22"/>
+    <text class="s" x="638" y="725">음식 토픽 : 음식 40%, 맛 30%, 메뉴 20%</text>
   </g>
 </svg>
