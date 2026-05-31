@@ -21,3 +21,4 @@ python-dotenv
 openai
 tiktoken
 koreanize_matplotlib
+scikit-learn
